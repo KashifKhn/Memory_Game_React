@@ -14,3 +14,12 @@
     src: url("assets/Fonts/Lunacy.woff") format("woff"),
          url("assets/Fonts/Lunacy.woff2") format("woff2");
 }
+
+html {
+    cursor: url(./assets/Cursors/Ghost.cur), auto;
+}
+
+.App {
+    perspective: 500px;
+
+}
