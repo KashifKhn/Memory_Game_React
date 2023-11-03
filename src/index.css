@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: "Creepy";
+    src: url("assets/Fonts/Creepy.woff") format("woff"),
+         url("assets/Fonts/Creepy.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Lunacy";
+    src: url("assets/Fonts/Lunacy.woff") format("woff"),
+         url("assets/Fonts/Lunacy.woff2") format("woff2");
+}
