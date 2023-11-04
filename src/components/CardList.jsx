@@ -6,15 +6,18 @@ const CardList = () => {
   const [cards, setCards] = useState(shuffleArray);
   const [flippedCards, setFlippedCards] = useState([]);
 
+  console.log("Card",cards);
+  console.log("flippedCards",flippedCards);
+
   const handleCardClick = (id) => {
-    console.log('Card clicked:', id);
     if (flippedCards.length === 0) {
       const updatedCards = cards.map((card) =>
         card.id === id ? { ...card, flipped: true } : card
       );
       setCards(updatedCards);
       setFlippedCards([id]);
-    } else if (flippedCards.length === 1) {
+    }
+    else if (flippedCards.length === 1) {
       const updatedCards = cards.map((card) =>
         card.id === id ? { ...card, flipped: true } : card
       );
@@ -26,8 +29,17 @@ const CardList = () => {
       const secondCard = cards.find((card) => card.id === id);
 
       if (firstCard.value === secondCard.value) {
+        console.log("matched");
+
+        const matchedCards = cards.map((card) =>
+          card.id === firstCardId || card.id === id
+            ? { ...card, flipped: true, matched: true }
+            : card
+        );
+        setCards(matchedCards);
         setFlippedCards([]);
-      } else {
+      }
+      else {
         setTimeout(() => {
           const unFlippedCards = cards.map((card) =>
             card.id === firstCardId || card.id === id

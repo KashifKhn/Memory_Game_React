@@ -13,106 +13,105 @@ const cards = [
         imgSrc: Bat,
         flipped: false,
         value: 'bat',
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Bones,
         flipped: false,
         value: "bones",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Cauldron,
         flipped: false,
         value: "cauldron",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Dracula,
         flipped: false,
         value: "dracula",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Eye,
         flipped: false,
         value: "eye",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Ghost,
         flipped: false,
         value: "ghost",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Pumpkin,
         flipped: false,
         value: "pumpkin",
-        selected: false,
+        matched: false,
         id: nanoid()
-    }
-    ,
+    },
     {
         imgSrc: Skull,
         flipped: false,
         value: "skull",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Bat,
         flipped: false,
         value: 'bat',
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Bones,
         flipped: false,
         value: "bones",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Cauldron,
         flipped: false,
         value: "cauldron",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Dracula,
         flipped: false,
         value: "dracula",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Eye,
         flipped: false,
         value: "eye",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Ghost,
         flipped: false,
         value: "ghost",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
     {
         imgSrc: Pumpkin,
         flipped: false,
         value: "pumpkin",
-        selected: false,
+        matched: false,
         id: nanoid()
     }
     ,
@@ -120,7 +119,7 @@ const cards = [
         imgSrc: Skull,
         flipped: false,
         value: "skull",
-        selected: false,
+        matched: false,
         id: nanoid()
     },
 ]
@@ -133,6 +132,5 @@ function shuffleArrays(cards) {
         const j = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-
     return newArray;
 }
