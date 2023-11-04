@@ -14,6 +14,7 @@ const Card = (props) => {
     return (
         <div
             className={`
+                card
                 relative w-[126px] h-[175px] flex items-center rounded-sm 
                 ${isFlipped ? 'border-orange-light' : "border-orange-dark"}  
                 border-2 justify-center 

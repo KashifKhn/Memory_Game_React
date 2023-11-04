@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import Card from './Card'
 import shuffleArray from '../Constant'
 
-const CardList = () => {
+const CardList = (props) => {
   const [cards, setCards] = useState(shuffleArray);
   const [flippedCards, setFlippedCards] = useState([]);
 
-  console.log("Card",cards);
-  console.log("flippedCards",flippedCards);
-
   const handleCardClick = (id) => {
+    props.setFlipCount(oldCount => oldCount + 1);
     if (flippedCards.length === 0) {
       const updatedCards = cards.map((card) =>
         card.id === id ? { ...card, flipped: true } : card
@@ -29,8 +27,7 @@ const CardList = () => {
       const secondCard = cards.find((card) => card.id === id);
 
       if (firstCard.value === secondCard.value) {
-        console.log("matched");
-
+        props.setMatchedCount(oldCount => oldCount + 1);
         const matchedCards = cards.map((card) =>
           card.id === firstCardId || card.id === id
             ? { ...card, flipped: true, matched: true }
@@ -48,7 +45,7 @@ const CardList = () => {
           );
           setCards(unFlippedCards);
           setFlippedCards([]);
-        }, 1000);
+        }, 700);
       }
     }
   };

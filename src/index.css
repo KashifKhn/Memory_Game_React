@@ -6,20 +6,27 @@
 @font-face {
     font-family: "Creepy";
     src: url("assets/Fonts/Creepy.woff") format("woff"),
-         url("assets/Fonts/Creepy.woff2") format("woff2");
+        url("assets/Fonts/Creepy.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Lunacy";
     src: url("assets/Fonts/Lunacy.woff") format("woff"),
-         url("assets/Fonts/Lunacy.woff2") format("woff2");
+        url("assets/Fonts/Lunacy.woff2") format("woff2");
 }
 
 html {
     cursor: url(./assets/Cursors/Ghost.cur), auto;
 }
 
-.App {
-    perspective: 500px;
+body {
+    background: radial-gradient(#9D5900, #3D2200);
+}
 
+button:hover {
+    cursor: url(./assets/Cursors/GhostHover.cur), auto;
+}
+
+.card:hover {
+    cursor: url(./assets/Cursors/GhostHover.cur), auto;
 }
