@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'orange-dark': '#FF6D00',
+        'orange-light' : '#FFBB89'
       },
       fontFamily: {
         Creepy: ['Creepy', 'sans'],

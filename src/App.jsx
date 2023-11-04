@@ -3,7 +3,7 @@ import CardList from './components/CardList'
 
 const App = () => {
   return (
-    <div className='App flex items-center justify-center h-screen prepe'>
+    <div className='App flex items-center justify-center h-screen m-48'>
       <CardList />
     </div>
   )
