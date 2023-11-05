@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import shuffleArray from '../Constant'
 
@@ -6,7 +6,17 @@ const CardList = (props) => {
   const [cards, setCards] = useState(shuffleArray);
   const [flippedCards, setFlippedCards] = useState([]);
 
+  useEffect(() => {
+    const win = cards.every(card => card.matched === true);
+    console.log(win);
+    if(win){
+      props.setGameStatus('win');
+      props.setGameOver(true);
+    }
+  }, [cards]);
+
   const handleCardClick = (id) => {
+    if (flippedCards[0] === id) return;
     props.setFlipCount(oldCount => oldCount + 1);
     if (flippedCards.length === 0) {
       const updatedCards = cards.map((card) =>
