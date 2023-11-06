@@ -8,7 +8,7 @@ import Pumpkin from './assets/Images/Pumpkin.png'
 import Skull from './assets/Images/Skull.png'
 import { nanoid } from 'nanoid'
 
-const cards = [
+export const unShuffledCards = [
     {
         imgSrc: Bat,
         flipped: false,
@@ -37,7 +37,7 @@ const cards = [
         matched: false,
         id: nanoid()
     },
-    {
+     {
         imgSrc: Eye,
         flipped: false,
         value: "eye",
@@ -113,8 +113,7 @@ const cards = [
         value: "pumpkin",
         matched: false,
         id: nanoid()
-    }
-    ,
+    },
     {
         imgSrc: Skull,
         flipped: false,
@@ -124,13 +123,14 @@ const cards = [
     },
 ]
 
-export default shuffleArrays(cards)
-
-function shuffleArrays(cards) {
-    const newArray = [...cards];
+export function handleShuffledCards(cards) {
+    const sortCard = cards.sort(() => Math.random() - 0.5);
+    const newArray = [...sortCard];
     for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
     return newArray;
 }
+
+export const shuffledCards = handleShuffledCards(unShuffledCards);

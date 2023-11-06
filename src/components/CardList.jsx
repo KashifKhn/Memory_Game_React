@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
-import shuffleArray from '../Constant'
 
 const CardList = (props) => {
-  const [cards, setCards] = useState(shuffleArray);
+  const {cards, setCards} = props;
+  // const [cards, setCards] = useState(shuffleArray);
   const [flippedCards, setFlippedCards] = useState([]);
 
   useEffect(() => {
     const win = cards.every(card => card.matched === true);
-    console.log(win);
-    if(win){
-      props.setGameStatus('win');
-      props.setGameOver(true);
-    }
+      setTimeout(() => {
+        if(win){
+          props.setGameStatus('win');
+          props.setGameOver(true);
+        }
+      }, 2000);
   }, [cards]);
 
   const handleCardClick = (id) => {
