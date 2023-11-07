@@ -12,33 +12,26 @@ const App = () => {
   const [matchedCount, setMatchedCount] = useState(0);
   const [time, setTime] = useState(0);
   const [gameStart, setGameStart] = useState(false);
-  const [gameOver, setGameOver] = useState(undefined);
+  const [gameOver, setGameOver] = useState(false);
   const [gameStatus, setGameStatus] = useState("");
 
   useEffect(() => {
     if (!gameStart) return;
+    if(gameOver) return;
     const interval = setInterval(() => {
       setTime(time => time + 1);
     }, 1000);
     return () => clearInterval(interval);
-  }, [gameStart]);
-
-  useEffect(() => {
-    console.log(cards);
-  }, [cards]);
-
+  }, [gameStart, gameOver]);
 
   useEffect(() => {
     if (matchedCount === 8) {
-      // for for some seconds to show the last matched card
-      setTimeout(() => {
         setGameStatus("win");
         setGameOver(true);
         if (flipCount < highScore) {
           setHighScore(flipCount);
           localStorage.setItem("highScore", flipCount);
         }
-      }, 500);
     }
   }, [matchedCount]);
 
@@ -77,6 +70,7 @@ const App = () => {
         setFlipCount={setFlipCount}
         setMatchedCount={setMatchedCount}
         setGameOver={setGameOver}
+        gameOver={gameOver}
         gameStatus={gameStatus}
         setGameStatus={setGameStatus}
         setCards={setCards}
