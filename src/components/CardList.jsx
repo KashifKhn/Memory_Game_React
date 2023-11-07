@@ -16,6 +16,8 @@ const CardList = (props) => {
 
   const handleCardClick = (id) => {
     if (flippedCards[0] === id) return;
+    if(cards.find(card => card.id === id).matched) return;
+
     props.setFlipCount(oldCount => oldCount + 1);
     if (flippedCards.length === 0) {
       const updatedCards = cards.map((card) =>
