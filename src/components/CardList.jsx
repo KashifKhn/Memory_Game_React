@@ -71,6 +71,7 @@ const CardList = (props) => {
             imgSrc={card.imgSrc}
             value={card.value}
             isFlipped={card.flipped}
+            matched={card.matched}
             holdCard={handleCardClick}
           />
         ))
