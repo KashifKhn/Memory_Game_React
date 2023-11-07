@@ -9,10 +9,11 @@ const Card = (props) => {
 
     function handleClick(id) {
         props.holdCard(id);
+        
     }
 
     return (
-        <div
+        <button
             className={`
                 card
                 relative w-[126px] h-[175px] flex items-center rounded-sm 
@@ -23,6 +24,7 @@ const Card = (props) => {
                 overflow-hidden
                 group
             `}
+            disabled={isFlipped || matched}
             onClick={() => handleClick(props.id)}
         >
             <img className={`${!isFlipped &&' group-hover:scale-110 transition-all'} ${matched && 'animate-pulse transition-all'} absolute bottom-0 right-0 w-[45px] h-[45px] rotate-90`}src={isFlipped ? cobWebGray : cobWeb} alt="" />
@@ -33,7 +35,7 @@ const Card = (props) => {
                 <img className={`self-center ${matched && 'animate-[wiggle_1s_ease-in-out_infinite] transition-all'}`} src={props.imgSrc} alt="" /> :
                 <img className='transition-all self-start group-hover:scale-90 group-hover:-translate-y-2' src={spider} alt="" />
             }
-        </div>
+        </button>
     )
 }
 
