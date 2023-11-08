@@ -10,7 +10,7 @@ const CardList = (props) => {
     if (win) {
       setTimeout(() => {
         setGameOver(true);
-      }, 1500)
+      }, 2000)
     }
 
   }, [cards, gameOver]);
