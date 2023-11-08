@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CardList from './components/CardList'
 import OverGame from './components/OverGame'
 import StartGame from './components/StartGame'
-import { shuffledCards, handleShuffledCards, unShuffledCards } from './Constant'
+import { shuffledCards, handleShuffledCards, unShuffledCards } from './data/data'
 
 
 const App = () => {
