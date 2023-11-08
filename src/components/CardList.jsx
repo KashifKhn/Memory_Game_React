@@ -8,7 +8,9 @@ const CardList = (props) => {
   useEffect(() => {
     const win = cards.every(card => card.matched === true);
     if (win) {
-      setGameOver(true);
+      setTimeout(() => {
+        setGameOver(true);
+      }, 1500)
     }
 
   }, [cards, gameOver]);
