@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card'
 
 const CardList = (props) => {
-  const {cards, setCards, gameOver} = props;
-  // const [cards, setCards] = useState(shuffleArray);
+  const { cards, setCards, gameOver, setGameOver } = props;
   const [flippedCards, setFlippedCards] = useState([]);
 
   useEffect(() => {
     const win = cards.every(card => card.matched === true);
     if (win) {
-        props.setGameStatus('win');
-        props.setGameOver(true);
+      setGameOver(true);
     }
+
   }, [cards, gameOver]);
 
   const handleCardClick = (id) => {
     if (flippedCards[0] === id) return;
-    if(cards.find(card => card.id === id).matched) return;
+    if (cards.find(card => card.id === id).matched) return;
 
     props.setFlipCount(oldCount => oldCount + 1);
     if (flippedCards.length === 0) {
@@ -26,6 +25,7 @@ const CardList = (props) => {
       setCards(updatedCards);
       setFlippedCards([id]);
     }
+    
     else if (flippedCards.length === 1) {
       const updatedCards = cards.map((card) =>
         card.id === id ? { ...card, flipped: true } : card

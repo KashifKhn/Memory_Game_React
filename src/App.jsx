@@ -8,12 +8,10 @@ import { shuffledCards, handleShuffledCards, unShuffledCards } from './Constant'
 const App = () => {
   const [cards, setCards] = useState(shuffledCards);
   const [flipCount, setFlipCount] = useState(0);
-  const [highScore, setHighScore] = useState(localStorage.getItem("highScore") || 0); // [TODO
   const [matchedCount, setMatchedCount] = useState(0);
   const [time, setTime] = useState(0);
   const [gameStart, setGameStart] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [gameStatus, setGameStatus] = useState("");
 
   useEffect(() => {
     if (!gameStart) return;
@@ -24,24 +22,12 @@ const App = () => {
     return () => clearInterval(interval);
   }, [gameStart, gameOver]);
 
-  useEffect(() => {
-    if (matchedCount === 8) {
-        setGameStatus("win");
-        setGameOver(true);
-        if (flipCount < highScore) {
-          setHighScore(flipCount);
-          localStorage.setItem("highScore", flipCount);
-        }
-    }
-  }, [matchedCount]);
-
   function handleResetGame() {
     setGameStart(false)
     setGameOver(false)
     setTime(0)
     setFlipCount(0)
     setMatchedCount(0)
-    setGameStatus("")
     setCards(handleShuffledCards(unShuffledCards))
   }
 
@@ -71,8 +57,6 @@ const App = () => {
         setMatchedCount={setMatchedCount}
         setGameOver={setGameOver}
         gameOver={gameOver}
-        gameStatus={gameStatus}
-        setGameStatus={setGameStatus}
         setCards={setCards}
         cards={cards}
       />
