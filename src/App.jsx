@@ -46,8 +46,8 @@ const App = () => {
 
   return (
     <div className='w-full h-full overflow-hidden flex flex-col items-center justify-center gap-4 my-8'>
-      <h1 className='text-[6em] font-Creepy text-orange-dark '>Mix-OR-Match</h1>
-      <div className='flex gap-8'>
+      <h1 className='text-[6em] font-Creepy text-center text-orange-dark '>Mix-OR-Match</h1>
+      <div className='flex max-sm:flex-col gap-8 max-sm:gap-2 text-center mb-8'>
         <h2 className='text-[4em] font-Lunacy text-orange-light '>Time: {time}</h2>
         <h2 className='text-[4em] font-Lunacy text-orange-light '>Flips: {flipCount}</h2>
         <h2 className='text-[4em] font-Lunacy text-orange-light '>Matches: {matchedCount}</h2>

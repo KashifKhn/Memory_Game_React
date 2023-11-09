@@ -64,7 +64,7 @@ const CardList = (props) => {
   };
 
   return (
-    <div className='[perspective:500px] grid grid-cols-4 gap-4'>
+    <div className='[perspective:500px] grid grid-cols-4 max-sm:grid-cols-2 gap-4'>
       {
         cards.map(card => (
           <Card
